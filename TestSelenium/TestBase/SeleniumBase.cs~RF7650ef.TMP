@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
+
+using System.Configuration;
+
+namespace TestSelenium
+{
+    public class SeleniumBase
+    {
+        public IWebDriver Driver { get; set; }
+        public BrowserEnum Browser { get; set; }
+
+        public IWebDriver InitializeDriver()
+        {            
+            var sBrowser = ConfigurationManager.AppSettings["Browser"];
+
+            switch(sBrowser)
+            {
+                case("Chrome"):
+                    Driver = new ChromeDriver();
+                    break;
+                case ("IE"):
+                    Driver = new InternetExplorerDriver();
+                    break;
+                default:
+                    Driver = new ChromeDriver();
+                    break;
+            }
+            return Driver;
+        }
+
+        public void OpenBrowser(IWebDriver driver)
+        {
+            var sBaseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+            driver.Navigate().GoToUrl(sBaseUrl);
+        }
+
+        public void CloseBrowser(IWebDriver driver)
+        { }
+    }
+}
