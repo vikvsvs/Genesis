@@ -7,3 +7,12 @@ C:\Users\vmannava\Documents\Visual Studio 2015\Projects\Preparation\TestSelenium
 C:\Users\vmannava\Documents\Visual Studio 2015\Projects\Preparation\TestSelenium\TestBase\obj\Debug\TestBase.csprojResolveAssemblyReference.cache
 C:\Users\vmannava\Documents\Visual Studio 2015\Projects\Preparation\TestSelenium\TestBase\obj\Debug\TestBase.dll
 C:\Users\vmannava\Documents\Visual Studio 2015\Projects\Preparation\TestSelenium\TestBase\obj\Debug\TestBase.pdb
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\bin\Debug\TestBase.dll
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\bin\Debug\TestBase.pdb
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\bin\Debug\WebDriver.dll
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\bin\Debug\WebDriver.Support.dll
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\bin\Debug\WebDriver.xml
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\bin\Debug\WebDriver.Support.xml
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\obj\Debug\TestBase.csprojResolveAssemblyReference.cache
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\obj\Debug\TestBase.dll
+C:\git\Personal\Genesis\Genesis\TestSelenium\TestBase\obj\Debug\TestBase.pdb

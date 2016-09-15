@@ -17,24 +17,41 @@ namespace TestSelenium
         private IWebDriver _driver { get; set; }
         public BrowserEnum Browser { get; set; }
 
-        public void InitializeDriver()
+        public IWebDriver InitializeDriver()
         {            
             var sBrowser = ConfigurationManager.AppSettings["Browser"];
             BrowserEnum eBrowser = (BrowserEnum)Enum.Parse(typeof(BrowserEnum), sBrowser.ToUpper());
-
-            switch(eBrowser)
+            var sDevice = ConfigurationManager.AppSettings["TargetDevice"];
+            ChromeOptions opt = new ChromeOptions();
+            switch (sDevice)
             {
-                case(BrowserEnum.CHROME):
-                    _driver = new ChromeDriver();
+                case "PC":                    
                     break;
-                case (BrowserEnum.IE):
+                case "Tablet":
+                    opt.EnableMobileEmulation("Google Nexus 7");
+                    break;
+                case "Mobile":
+                    opt.EnableMobileEmulation("Google Nexus 5");
+                    break;
+                default:
+                    break;
+            }
+
+            switch (eBrowser)
+            {
+                case BrowserEnum.CHROME:                    
+                    _driver = new ChromeDriver(opt);
+                    break;
+                case BrowserEnum.IE:
                     _driver = new InternetExplorerDriver();
                     break;
                 default:
                     _driver = new ChromeDriver();
                     break;
             }
-            OpenBrowser();            
+            OpenBrowser();
+
+            return _driver;         
         }
 
         #region Open Browser
@@ -51,5 +68,19 @@ namespace TestSelenium
             _driver.Quit();
         }
         #endregion Close Browser
+
+        #region ButtonClick
+        public void ButtonClick(string sControlId)
+        {
+            _driver.FindElement(By.Id(sControlId)).Click();
+        }
+        #endregion ButtonClick
+
+        #region FindElement
+        public IWebElement FindElementById(string sId)
+        {
+            return _driver.FindElement(By.Id(sId));
+        }
+        #endregion FindElement
     }
 }

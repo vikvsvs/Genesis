@@ -17,18 +17,26 @@ namespace TestSelenium
         [TestInitialize]
         public void Initialize()
         {
-            InitializeDriver();            
+            driver = InitializeDriver();
+            
         }
 
         [TestMethod]
         public void TestMethod1()
         {
+            var eUserID = FindElementById("textLogin");
+            var ePassword = FindElementById("Password");
+            
+            eUserID.SendKeys("admin");
+            ePassword.SendKeys("varsun");
+
+            ButtonClick("btnLogin");
         }
 
         [TestCleanup]
         public void EndTest()
         {
-            CloseBrowser();            
+            //CloseBrowser();            
         }
     }
 }
